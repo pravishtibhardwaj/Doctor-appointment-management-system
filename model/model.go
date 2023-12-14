@@ -16,7 +16,7 @@ type Patient struct {
 	P_address string `json:"address"`
 }
 
-type Apoointemnt struct {
+type Appointment struct {
 	ID   int `json:"id"`
 	Patient_name string `json:"pname"`
 	Doctor_name string `json:"dname"`
