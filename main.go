@@ -1,18 +1,25 @@
 package main
 
-import "gofr.dev/pkg/gofr"
+import (
+	"github.com/pravishtibhardwaj/doctor-appointment-management-system/datastore"
+
+	"github.com/pravishtibhardwaj/doctor-appointment-management-system/handler"
+
+	"gofr.dev/pkg/gofr"
+)
 
 func main() {
-    // initialise gofr object
-    app := gofr.New()
+	app := gofr.New()
 
-    // register route greet
-    app.GET("/greet", func(ctx *gofr.Context) (interface{}, error) {
+	s := datastore.New()
+	h := handler.New(s)
 
-        return "Hello World!", nil
-    })
+	app.GET("/appointment/{id}", h.GetByID)
+	app.POST("/appointment", h.Create)
+	app.PUT("/appointment/{id}", h.Update)
+	app.DELETE("/appointment/{id}", h.Delete)
 
-    // Starts the server, it will listen on the default port 8000.
-    // it can be over-ridden through configs
-    app.Start()
+	// starting the server on a custom port
+	app.Server.HTTP.Port = 9000
+	app.Start()
 }
