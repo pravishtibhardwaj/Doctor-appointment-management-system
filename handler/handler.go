@@ -63,7 +63,7 @@ func (h handler) Create(ctx *gofr.Context) (interface{}, error) {
 		return nil, errors.InvalidParam{Param: []string{"body"}}
 	}
 
-	resp, err := h.store.Create(ctx, &appoint)
+	resp, err := h.store.Create(ctx, appoint)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func (h handler) Update(ctx *gofr.Context) (interface{}, error) {
 
 	appoint.ID = id
 
-	resp, err := h.store.Update(ctx, &appoint)
+	resp, err := h.store.Update(ctx, appoint)
 	if err != nil {
 		return nil, err
 	}
@@ -117,10 +117,10 @@ func (h handler) Delete(ctx *gofr.Context) (interface{}, error) {
 }
 
 func validateID(id string) (int, error) {
-	res, err := strconv.Atoi(id)
+	response, err := strconv.Atoi(id)
 	if err != nil {
 		return 0, err
 	}
 
-	return res, err
+	return response, err
 }

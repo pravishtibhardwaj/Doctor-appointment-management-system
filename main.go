@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/pravishtibhardwaj/doctor-appointment-management-system/datastore"
-
 	"github.com/pravishtibhardwaj/doctor-appointment-management-system/handler"
 
 	"gofr.dev/pkg/gofr"
