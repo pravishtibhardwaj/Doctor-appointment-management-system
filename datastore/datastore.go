@@ -17,7 +17,7 @@ func New() *appoint {
 func (s *appoint) GetByID(ctx *gofr.Context, id string) (*model.Appointment, error) {
 	var resp model.Appointment
 
-	err := ctx.DB().QueryRowContext(ctx, "SELECT id,patient_name, doctor_name, appointment_time,status FROM appointments where id=?", id).
+	  err := ctx.DB().QueryRowContext(ctx, "SELECT id,patient_name, doctor_name, appointment_time,status FROM appointments where id=?", id).
 		Scan(&resp.ID, &resp.Patient_name, &resp.Doctor_name, &resp.Appointment_time,&resp.Status)
 	switch err {
 	case sql.ErrNoRows:
@@ -28,6 +28,27 @@ func (s *appoint) GetByID(ctx *gofr.Context, id string) (*model.Appointment, err
 		return &model.Appointment{}, err
 	}
 }
+func (s *appoint) GetAllAppointments(ctx *gofr.Context) (*[]model.Appointment, error) {
+	var appointments []model.Appointment
+
+	rows, err := ctx.DB().QueryContext(ctx, "SELECT id, patient_name, doctor_name, appointment_time, status FROM appointments")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var appointment model.Appointment
+		err := rows.Scan(&appointment.ID, &appointment.Patient_name, &appointment.Doctor_name, &appointment.Appointment_time, &appointment.Status)
+		if err != nil {
+			return nil, err
+		}
+		appointments = append(appointments, appointment)
+	}
+
+	return &appointments, nil
+}
+
 
 func (s *appoint) Create(ctx *gofr.Context, appoint *model.Appointment) (*model.Appointment, error) {
 	

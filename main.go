@@ -16,6 +16,7 @@ func main() {
 
 	app.GET("/appointment/{id}", h.GetByID)
 	app.POST("/appointment", h.Create)
+	app.GET("/all_appointment", h.GetAllAppointments)
 	app.PUT("/appointment/{id}", h.Update)
 	app.DELETE("/appointment/{id}", h.Delete)
 

@@ -40,6 +40,20 @@ func (h handler) GetByID(ctx *gofr.Context) (interface{}, error) {
 	return resp, nil
 }
 
+func (h handler) GetAllAppointments(ctx *gofr.Context) (interface{}, error) {
+	
+	
+	resp, err := h.store.GetAllAppointments(ctx)
+	if err != nil {
+		return nil, errors.EntityNotFound{
+			Entity: "appointments",
+			
+		}
+	}
+
+	return resp, nil
+}
+
 func (h handler) Create(ctx *gofr.Context) (interface{}, error) {
 	var appoint model.Appointment
 
