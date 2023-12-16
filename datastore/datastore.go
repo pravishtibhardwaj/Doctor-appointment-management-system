@@ -18,7 +18,7 @@ func New() *appoint {
 func (s *appoint) GetByID(ctx *gofr.Context, id string) (*model.Appointment, error) {
 	var resp model.Appointment
 
-	err := ctx.DB().QueryRowContext(ctx, " SELECT id,pname,dname,time,status FROM appointments where id=?", id).
+	err := ctx.DB().QueryRowContext(ctx, "SELECT id,patient_name, doctor_name, appointment_time,status FROM appointments where id=?", id).
 		Scan(&resp.ID, &resp.Patient_name, &resp.Doctor_name, &resp.Appointment_time,&resp.Status)
 	switch err {
 	case sql.ErrNoRows:
@@ -35,7 +35,7 @@ func (s *appoint) Create(ctx *gofr.Context, appoint *model.Appointment) (*model.
 
 	var resp model.Appointment
 
-    result, err := ctx.DB().ExecContext(ctx, "INSERT INTO appointments (pname,dname,time,status) VALUES (?,?,?,?)",appoint.Patient_name, appoint.Doctor_name, appoint.Appointment_time,appoint.Status)
+    result, err := ctx.DB().ExecContext(ctx, "INSERT INTO appointments (patient_name, doctor_name, appointment_time,status) VALUES (?,?,?,?)",appoint.Patient_name, appoint.Doctor_name, appoint.Appointment_time,appoint.Status)
     if err != nil {
         return &model.Appointment{}, errors.DB{Err: err}
     }
@@ -46,7 +46,7 @@ func (s *appoint) Create(ctx *gofr.Context, appoint *model.Appointment) (*model.
         return &model.Appointment{}, errors.DB{Err: err}
     }
 // ctx.Logger.Log(lastInsertID)
-    err = ctx.DB().QueryRowContext(ctx, "SELECT id, pname, dname, time,status FROM appointments WHERE id = ?", lastInsertID).Scan(&resp.ID, &resp.Patient_name, &resp.Doctor_name,&resp.Appointment_time, &resp.Status)
+    err = ctx.DB().QueryRowContext(ctx, "SELECT id, patient_name, doctor_name, appointment_time,status FROM appointments WHERE id = ?", lastInsertID).Scan(&resp.ID, &resp.Patient_name, &resp.Doctor_name,&resp.Appointment_time, &resp.Status)
     if err != nil {
         return &model.Appointment{}, errors.DB{Err: err}
     }
@@ -55,7 +55,7 @@ func (s *appoint) Create(ctx *gofr.Context, appoint *model.Appointment) (*model.
 }
 
 func (s *appoint) Update(ctx *gofr.Context, appoint *model.Appointment) (*model.Appointment, error) {
-	_, err := ctx.DB().ExecContext(ctx, "UPDATE appointments SET pname=?,dname=?,time=?,status=? WHERE id=?",
+	_, err := ctx.DB().ExecContext(ctx, "UPDATE appointments SET patient_name=?, doctor_name=?, appointment_time=?,status=? WHERE id=?",
 		appoint.Patient_name, appoint.Doctor_name, appoint.Appointment_time,appoint.Status, appoint.ID)
 	if err != nil {
 		return &model.Appointment{}, errors.DB{Err: err}
