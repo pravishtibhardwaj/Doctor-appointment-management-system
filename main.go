@@ -19,7 +19,5 @@ func main() {
 	app.PUT("/appointment/{id}", h.Update)
 	app.DELETE("/appointment/{id}", h.Delete)
 
-	// starting the server on a custom port
-	app.Server.HTTP.Port = 9000
 	app.Start()
 }

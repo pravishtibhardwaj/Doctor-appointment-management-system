@@ -3,10 +3,9 @@ package datastore
 import (
 	"database/sql"
 
+	"github.com/pravishtibhardwaj/doctor-appointment-management-system/model"
 	"gofr.dev/pkg/errors"
 	"gofr.dev/pkg/gofr"
-
-	"github.com/pravishtibhardwaj/doctor-appointment-management-system/model"
 )
 
 type appoint struct{}
