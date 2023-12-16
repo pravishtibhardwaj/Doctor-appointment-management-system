@@ -1,6 +1,11 @@
 # Doctor-appointment-management-system
 A simple API build to manage the doctor's appointments involves the CRUD operations to create new appointments, get the details of appointments, update details like date and time or status of appointment and delete the appointment once it is being finished.
 
+## Tools and Technologies used :
+* This project is built using go language and goFr framework
+* Database: MySql database is integrated and data is stored in form of tables
+* Testing: Postman is used for testing all api
+
 # Functions :
 * Create New Appointments: This will allow creating new appointments by adding details like the patient's name, doctor's name, Date and time of appointment, and status.Each new appointment will be assigned its own unique id.
 * Get Details: This will help in extracting the details of any appointment by inserting the ID of the appointment
@@ -10,13 +15,13 @@ A simple API build to manage the doctor's appointments involves the CRUD operati
 # Steps to run the project
 * install the latest version of go onto your system
 * Clone this repository using:
->git clone https://github.com/pravishtibhardwaj/Doctor-appointment-management-system.git
+> git clone https://github.com/pravishtibhardwaj/Doctor-appointment-management-system.git
 * Run the following command to add goFr package:
->go get gofr.dev
+> go get gofr.dev
 * To download and sync the required modules run the following command:
 > go mod tidy
 * To run the server, use the command:
 > go run main.go
 
-              
+
 
