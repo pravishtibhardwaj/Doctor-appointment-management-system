@@ -1,4 +1,4 @@
-# Doctor-appointment-management-system
+# Doctor-appointment-management-system (HTTP-rest-api)
 A simple API build to manage the doctor's appointments involving the CRUD operations to create new appointments, get the details of appointments, update details like date and time or status of appointment and delete the appointment once it is being finished.
 
 ## Tools and Technologies used :
