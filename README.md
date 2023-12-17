@@ -24,13 +24,18 @@ A simple API build to manage the doctor's appointments involves the CRUD operati
 > go run main.go
 
 ## Some Additional Steps
-* Create a database using mysql named "appointments"
+* Create a database using MySQL named "appointments"
 * Enter the DB details in the .env file in the configs folder
 
 ## UML diagrams
 * Use Case Diagram:
   
 ![Untitled (1)](https://github.com/pravishtibhardwaj/Doctor-appointment-management-system/assets/76443753/38626184-f8a6-443f-8312-b3ccc1c05e2d)
+
+* Sequence Diagram: 
+
+## Postman testing documentation link: 
+> https://documenter.getpostman.com/view/21821262/2s9Ykn9N7v
 
 
 
