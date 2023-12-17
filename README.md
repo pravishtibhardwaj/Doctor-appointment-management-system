@@ -8,8 +8,9 @@ A simple API build to manage the doctor's appointments involves the CRUD operati
 
 ## Functions :
 * Create New Appointments: This will allow creating new appointments by adding details like the patient's name, doctor's name, Date and time of appointment, and status.Each new appointment will be assigned its own unique id.
-* Get Details: This will help in extracting the details of any appointment by inserting the ID of the appointment
-* Update : This will allow us to update details of any appointment with given id.
+* Get Details by id: This will help in extracting the details of any appointment by inserting the ID of the appointment
+* List all appointments: This will list all the appointments in the database.
+* Update : This will allow us to update the details of any appointment with the given id.
 * Delete : This will allow to delete the existing appointments once they are completed.
 
 ## Steps to run the project
