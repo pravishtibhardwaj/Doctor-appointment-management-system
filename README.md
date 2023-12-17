@@ -35,7 +35,9 @@ A simple API build to manage the doctor's appointments involves the CRUD operati
 
 * Sequence Diagram: 
 
-## Postman testing documentation link: 
+ ![Sequence Diagram Example_ Make Appointment (1)](https://github.com/pravishtibhardwaj/Doctor-appointment-management-system/assets/76443753/79e8ba23-b35f-4341-a35b-9917cc6a0ebd)
+
+## Postman testing documentation link:
 > https://documenter.getpostman.com/view/21821262/2s9Ykn9N7v
 
 
